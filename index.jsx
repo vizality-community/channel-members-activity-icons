@@ -10,18 +10,18 @@ const TwitchLogo = '/assets/edbbf6107b2cd4334d582b26e1ac786d.png';
 
 module.exports = class ChannelMembersActivityIcons extends Plugin {
   onStart () {
-    this.injectStyles('styles/main.scss');
+    this.injectStyles('styles/main.css');
     this.injectActivityIcons();
   }
 
   onStop () {
-    unpatch('channel-members-activity-icons');
+    unpatch('cmai-activity-icons');
   }
 
   async injectActivityIcons () {
     const MemberListItem = getModuleByDisplayName('MemberListItem');
 
-    patch('channel-members-activity-icons', MemberListItem.prototype, 'render', (_, res) => {
+    patch('cmai-activity-icons', MemberListItem.prototype, 'render', (_, res) => {
       if (!res.props || !res.props.subText || !res.props.subText.props) return res;
 
       const { activities } = res.props.subText.props;
@@ -33,7 +33,7 @@ module.exports = class ChannelMembersActivityIcons extends Plugin {
           res.props.children =
             <Tooltip text={activity.name} position='left'>
               <div
-                className='channel-members-activity-icon'
+                className='cmai-activity-icon'
                 style={{
                   backgroundImage: `url(${activity.name === 'Spotify'
                     ? SpotifyLogo

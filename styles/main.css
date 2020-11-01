@@ -1,0 +1,17 @@
+:root {
+  --cmai-activity-icon-size: 24px;
+  --cmai-activity-icon-border-radius: 4px;
+}
+
+.membersWrap-2h-GB4 .cmai-activity-icon {
+  width: var(--cmai-activity-icon-size);
+  height: var(--cmai-activity-icon-size);
+  border-radius: var(--cmai-activity-icon-border-radius);
+  margin-left: 5px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.membersWrap-2h-GB4 .icon-15YQ1T {
+  display: none;
+}
