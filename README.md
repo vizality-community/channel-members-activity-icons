@@ -1,6 +1,6 @@
 # Channel Members Activity Icons
 
-Checks the users' current primary activities and adds an icon on members list if there's one available.
+Checks the users' current primary activities and adds an icon on the channel members list next to the user if there's one available.
 
 ## Preview
 
