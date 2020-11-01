@@ -1,2 +1,16 @@
-# channel-members-activity-icons
-Adds activity icons to the channel members list display the user's currently primary activity.
+# Channel Members Activity Icons
+
+Checks the users' current primary activities and adds an icon on members list if there's one available.
+
+## Preview
+
+![Channel Members Activity Icons](screenshots/preview-2.gif)
+
+## Todo
+
+Add the following settings options:
+
+- [ ] Slider input to change icon size
+- [ ] Slider input to change icon border radius
+- [ ] Allow the user to blacklist certain activities (tag list)
+- [ ] Allow the user to use the large asset image instead of the small asset image for certain activities (tag list)

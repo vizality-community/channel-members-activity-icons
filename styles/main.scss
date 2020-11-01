@@ -1,0 +1,22 @@
+@use '../../../../src/.vizality/lib/sass/functions' as *;
+@use '../../../../src/.vizality/lib/sass/mixins' as *;
+
+:root {
+  --members-activity-icon-size: 24px;
+  --members-activity-border-radius: 4px;
+}
+
+.membersWrap-2h-GB4 {
+  .channel-members-activity-icon {
+    @include size(var('members-activity-icon-size'));
+    border-radius: var('members-activity-border-radius');
+    margin-left: 5px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  // Remove rich presence icon
+  .icon-15YQ1T {
+    display: none;
+  }
+}
