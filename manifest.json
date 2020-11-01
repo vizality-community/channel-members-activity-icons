@@ -5,6 +5,6 @@
   "authorId": "97549189629636608",
   "description": "Adds activity icons to the channel members list for users' current activity.",
   "icon": "assets/icon.png",
-  "color": "#8b23b2",
+  "color": "#971837",
   "license": "MIT"
 }
