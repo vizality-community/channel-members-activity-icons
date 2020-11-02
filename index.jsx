@@ -26,12 +26,14 @@ module.exports = class ChannelMembersActivityIcons extends Plugin {
 
       const { activities } = res.props.subText.props;
 
+      res.props.children = [];
+
       for (const activity of activities) {
-        if ((activity.application_id && activity.assets && activity.assets.small_image) ||
+        if ((activity.application_id && activity.assets) ||
         (activity.type && activity.type === 2 && activity.name === 'Spotify') ||
         (activity.type && activity.type === 1)) {
-          res.props.children =
-            <Tooltip text={activity.name} position='left'>
+          res.props.children.push(
+            <Tooltip text={activity.name} position='left' className='cmai-activity-icon-wrapper'>
               <div
                 className='cmai-activity-icon'
                 style={{
@@ -39,15 +41,15 @@ module.exports = class ChannelMembersActivityIcons extends Plugin {
                     ? SpotifyLogo
                     : activity.type === 1
                       ? TwitchLogo
-                      : `https://cdn.discordapp.com/app-assets/${activity.application_id}/${activity.assets.small_image}.png`
-                  })`
+                      : `https://cdn.discordapp.com/app-assets/${activity.application_id}/${activity.assets.large_image}.png`
+                  })`,
+                  backgroundSize: `${activity.name === 'Spotify' || activity.type === 1 ? '130%' : null}`
                 }}
               />
-            </Tooltip>;
+            </Tooltip>
+          );
 
           res.props.className = joinClassNames(res.props.className, 'vz-hasActivityIcon');
-
-          return res;
         }
       }
 
