@@ -6,20 +6,23 @@
   --cmai-activity-icon-border-radius: 4px;
 }
 
+.cmai-activity-icon {
+  @include size(var('cmai-activity-icon-size'));
+  border-radius: var('cmai-activity-icon-border-radius');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  &-wrapper {
+    & + & {
+    margin-left: 5px;
+    }
+  }
+}
+
 .membersWrap-2h-GB4 {
   .children-gzQq2t {
     display: flex;
     flex-flow: row nowrap;
-  }
-  .cmai-activity-icon {
-    @include size(var('cmai-activity-icon-size'));
-    border-radius: var('cmai-activity-icon-border-radius');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    & + & {
-      margin-left: 5px;
-    }
   }
   // Remove rich presence icon
   .icon-15YQ1T {
