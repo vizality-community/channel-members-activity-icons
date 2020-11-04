@@ -1,6 +1,6 @@
 const { getModuleByDisplayName } = require('@webpack');
 const { patch, unpatch } = require('@patcher');
-const { joinClassNames } = require('@util');
+const { joinClassNames, object: { isEmptyObject } } = require('@util');
 const { Tooltip } = require('@components');
 const { Plugin } = require('@entities');
 const { React } = require('@react');
@@ -29,7 +29,8 @@ module.exports = class ChannelMembersActivityIcons extends Plugin {
       res.props.children = [];
 
       for (const activity of activities) {
-        if ((activity.application_id && activity.assets) ||
+        console.log(activity);
+        if ((activity.application_id && activity.assets && (activity.assets.large_image || activity.assets.small_image)) ||
         (activity.type && activity.type === 2 && activity.name === 'Spotify') ||
         (activity.type && activity.type === 1)) {
           res.props.children.push(
@@ -41,7 +42,7 @@ module.exports = class ChannelMembersActivityIcons extends Plugin {
                     ? SpotifyLogo
                     : activity.type === 1
                       ? TwitchLogo
-                      : `https://cdn.discordapp.com/app-assets/${activity.application_id}/${activity.assets.large_image}.png`
+                      : `https://cdn.discordapp.com/app-assets/${activity.application_id}/${activity.assets.large_image || activity.assets.small_image}.png`
                   })`,
                   backgroundSize: `${activity.name === 'Spotify' || activity.type === 1 ? '130%' : null}`
                 }}
