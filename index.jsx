@@ -29,7 +29,6 @@ module.exports = class ChannelMembersActivityIcons extends Plugin {
       res.props.children = [];
 
       for (const activity of activities) {
-        console.log(activity);
         if ((activity.application_id && activity.assets && (activity.assets.large_image || activity.assets.small_image)) ||
         (activity.type && activity.type === 2 && activity.name === 'Spotify') ||
         (activity.type && activity.type === 1)) {
