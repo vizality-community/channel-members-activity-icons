@@ -9,7 +9,7 @@
   border-radius: var(--cmai-activity-icon-border-radius);
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
+  background-size: contain;
 }
 .cmai-activity-icon-wrapper + .cmai-activity-icon-wrapper {
   margin-left: 5px;

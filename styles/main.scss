@@ -11,7 +11,7 @@
   border-radius: var('cmai-activity-icon-border-radius');
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
+  background-size: contain;
   &-wrapper {
     & + & {
     margin-left: 5px;
