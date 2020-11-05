@@ -45,7 +45,7 @@ module.exports = class ChannelMembersActivityIcons extends Plugin {
                       ? TwitchLogo
                       : `https://cdn.discordapp.com/app-assets/${activity.application_id}/${activity.assets.large_image || activity.assets.small_image}.png`
                   })`,
-                  backgroundSize: `${activity.name === 'Spotify' || activity.type === 1 ? '130%' : null}`
+                  backgroundSize: `${activity.name === 'Spotify' ? '130%' : null}`
                 }}
               />
             </Tooltip>
