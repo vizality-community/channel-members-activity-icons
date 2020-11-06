@@ -11,7 +11,7 @@ const TwitchLogo = `${HTTP.ASSETS}/logos/twitch.png`;
 
 module.exports = class ChannelMembersActivityIcons extends Plugin {
   onStart () {
-    this.injectStyles('styles/main.css');
+    this.injectStyles('styles/main.scss');
     this.injectActivityIcons();
   }
 

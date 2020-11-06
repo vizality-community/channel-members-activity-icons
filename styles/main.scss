@@ -1,8 +1,8 @@
-@use '../../../../src/core/lib/sass/functions' as *;
-@use '../../../../src/core/lib/sass/mixins' as *;
+@use '@vizality/sass/functions' as *;
+@use '@vizality/sass/mixins' as *;
 
 :root {
-  --cmai-activity-icon-size: 24px;
+  --cmai-activity-icon-size: 20px;
   --cmai-activity-icon-border-radius: 4px;
 }
 
@@ -14,7 +14,7 @@
   background-size: contain;
   &-wrapper {
     & + & {
-    margin-left: 5px;
+    margin-left: 7px;
     }
   }
 }
