@@ -56,7 +56,7 @@ module.exports = class ChannelMembersActivityIcons extends Plugin {
 
         if (activity.application_id && activity.type === 0 && !activity.assets) {
           const appId = activity.application_id;
-          const { icon } = getGame(appId);
+          const icon = getGame(appId)?.icon;
           if (icon) {
             res.props.children.push(
               <Tooltip text={activity.name} position='left' className='cmai-activity-icon-wrapper'>
