@@ -1,5 +1,4 @@
-@use '@vizality/sass/functions' as *;
-@use '@vizality/sass/mixins' as *;
+@use '@vizality' as *;
 
 :root {
   --cmai-activity-icon-size: 20px;
@@ -28,14 +27,4 @@
   .icon-15YQ1T {
     display: none;
   }
-  // @todo: Make this a settings option for a less busy channel members appearance
-  // .content-3QAtGj {
-  //   // 8px (left margin) + 24px (icon size) + 5px (left margin)
-  //   margin-right: calc(8px + #{var('members-activity-icon-size')} + 5px);
-  // }
-  // .vz-hasActivityIcon {
-  //   .content-3QAtGj {
-  //     margin: 0;
-  //   }
-  // }
 }
