@@ -3,11 +3,12 @@ const { patch, unpatch } = require('@vizality/patcher');
 const { joinClassNames } = require('@vizality/util');
 const { Tooltip } = require('@vizality/components');
 const { Plugin } = require('@vizality/entities');
-const { HTTP } = require('@vizality/constants');
 const { React } = require('@vizality/react');
 
-const SpotifyLogo = '/assets/f0655521c19c08c4ea4e508044ec7d8c.png';
-const TwitchLogo = `${HTTP.ASSETS}/logos/twitch.png`;
+const Images = {
+  SPOTIFY: `vz-plugin://${this.addonId}/assets/spotify.png`,
+  TWITCH: `vz-plugin://${this.addonId}/assets/twitch.png`
+};
 
 module.exports = class ChannelMembersActivityIcons extends Plugin {
   onStart () {
@@ -39,9 +40,9 @@ module.exports = class ChannelMembersActivityIcons extends Plugin {
                 className='cmai-activity-icon'
                 style={{
                   backgroundImage: `url(${activity.name === 'Spotify'
-                    ? SpotifyLogo
+                    ? Images.SPOTIFY
                     : activity.type === 1
-                      ? TwitchLogo
+                      ? Images.TWITCH
                       : `https://cdn.discordapp.com/app-assets/${activity.application_id}/${activity.assets?.large_image || activity.assets?.small_image}.png`
                   })`,
                   backgroundSize: `${activity.name === 'Spotify' ? '130%' : null}`
