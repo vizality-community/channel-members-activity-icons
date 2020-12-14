@@ -5,15 +5,15 @@ const { Tooltip } = require('@vizality/components');
 const { Plugin } = require('@vizality/entities');
 const { React } = require('@vizality/react');
 
-const Images = {
-  SPOTIFY: `vz-plugin://${this.addonId}/assets/spotify.png`,
-  TWITCH: `vz-plugin://${this.addonId}/assets/twitch.png`
-};
-
 module.exports = class ChannelMembersActivityIcons extends Plugin {
   onStart () {
     this.injectStyles('styles/main.scss');
     this.injectActivityIcons();
+
+    this.Images = {
+      SPOTIFY: `vz-plugin://${this.addonId}/assets/spotify.png`,
+      TWITCH: `vz-plugin://${this.addonId}/assets/twitch.png`
+    };
   }
 
   onStop () {
@@ -40,12 +40,11 @@ module.exports = class ChannelMembersActivityIcons extends Plugin {
                 className='cmai-activity-icon'
                 style={{
                   backgroundImage: `url(${activity.name === 'Spotify'
-                    ? Images.SPOTIFY
+                    ? this.Images.SPOTIFY
                     : activity.type === 1
-                      ? Images.TWITCH
+                      ? this.Images.TWITCH
                       : `https://cdn.discordapp.com/app-assets/${activity.application_id}/${activity.assets?.large_image || activity.assets?.small_image}.png`
-                  })`,
-                  backgroundSize: `${activity.name === 'Spotify' ? '130%' : null}`
+                  })`
                 }}
               />
             </Tooltip>
