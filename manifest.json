@@ -1,10 +1,11 @@
 {
   "name": "Channel Members Activity Icons",
   "version": "0.0.5",
-  "author": "dperolio",
-  "authorId": "97549189629636608",
+  "author": {
+    "name": "dperolio",
+    "id": "97549189629636608"
+  },
   "description": "Adds activity icons to the channel members list for users' current activity.",
   "icon": "assets/icon.png",
-  "color": "#971837",
   "license": "MIT"
 }
