@@ -1,20 +1,26 @@
 @use '@vizality' as *;
 
 :root {
-  --cmai-activity-icon-size: 20px;
-  --cmai-activity-icon-border-radius: 4px;
+  --channel-members-activity-icons__icon-size: 20px;
+  --channel-members-activity-icons__icon-border-radius: 4px;
 }
 
-.cmai-activity-icon {
-  @include size(var('cmai-activity-icon-size'));
-  border-radius: var('cmai-activity-icon-border-radius');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  &-wrapper {
+.channel-members-activity-icons {
+  &-image {
+    @include size(var(--channel-members-activity-icons__icon-size));
+    border-radius: var(--channel-members-activity-icons__icon-border-radius);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
     & + & {
-    margin-left: 7px;
+      margin-left: 7px;
     }
+    &-wrapper {
+      @include size(var(--channel-members-activity-icons__icon-size));
+    }
+  }
+  &-img {
+    @include size(100%);
   }
 }
 
