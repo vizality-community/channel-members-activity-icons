@@ -1,7 +1,7 @@
 {
   "name": "Channel Members Activity Icons",
   "description": "Adds activity icons to the channel members list for users' current activity.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "MIT",
   "author": {
     "name": "dperolio",

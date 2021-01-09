@@ -2,7 +2,7 @@ import React from 'react';
 
 import { getModule, getModuleByDisplayName } from '@vizality/webpack';
 import { patch, unpatch } from '@vizality/patcher';
-import { Plugin } from '@vizality/core';
+import { Plugin } from '@vizality/entities';
 
 import ActivityIcon from './components/ActivityIcon';
 
