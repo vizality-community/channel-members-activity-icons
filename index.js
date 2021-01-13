@@ -7,7 +7,7 @@ import { Plugin } from '@vizality/entities';
 import ActivityIcon from './components/ActivityIcon';
 
 export default class ChannelMembersActivityIcons extends Plugin {
-  onStart () {
+  start () {
     this.injectStyles('styles/main.scss');
     this.injectActivityIcons();
 
@@ -17,7 +17,7 @@ export default class ChannelMembersActivityIcons extends Plugin {
     };
   }
 
-  onStop () {
+  stop () {
     unpatch('channel-members-activity-icons');
   }
 
