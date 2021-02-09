@@ -28,7 +28,8 @@ export default class ChannelMembersActivityIcons extends Plugin {
     patch('channel-members-activity-icons', MemberListItem.prototype, 'render', (_, res) => {
       if (!res.props?.subText?.props) return res;
 
-      const { activities } = res.props.subText.props;
+      const activities = res?.props?.subText?.props?.activities;
+      if (!activities?.length) return res;
 
       res.props.children = [];
 
