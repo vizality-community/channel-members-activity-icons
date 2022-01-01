@@ -12,16 +12,25 @@ export default class ChannelMembersActivityIcons extends Plugin {
     this.injectActivityIcons();
 
     this.Images = {
-      SPOTIFY: `vz-plugin://${this.addonId}/assets/spotify.png`,
-      TWITCH: `vz-plugin://${this.addonId}/assets/twitch.png`
+      GITHUB: `vizality://plugins/${this.addonId}/assets/github.png`,
+      NETFLIX: `vizality://plugins/${this.addonId}/assets/netflix.png`,
+      SPOTIFY: `vizality://plugins/${this.addonId}/assets/spotify.png`,
+      TWITCH: `vizality://plugins/${this.addonId}/assets/twitch.png`,
+      "YOUTUBE MUSIC": `vizality://plugins/${this.addonId}/assets/youtubemusic.png`,
     };
+
+    this.Special = [
+      "github",
+      "netflix",
+      "youtube music",
+    ]
   }
 
   stop () {
     unpatch('channel-members-activity-icons');
   }
 
-  async injectActivityIcons () {
+  injectActivityIcons () {
     const MemberListItem = getModuleByDisplayName('MemberListItem');
     const { getGame } = getModule('getGame');
 
@@ -35,9 +44,20 @@ export default class ChannelMembersActivityIcons extends Plugin {
 
       for (const activity of activities) {
         if (activity.application_id && activity.assets && (activity.assets?.large_image || activity.assets?.small_image)) {
-          res.props.children.push(
+          if (this.Special.includes(activity.name.toLowerCase())) {
+            let src
+            if (activity.assets?.large_image.split("mp:external/").join("").split(".")[1] || activity.assets?.small_image.split("mp:external/").join("").split(".")[1]) src = `https://media.discordapp.net/external/${activity.assets?.large_image.split("mp:external/").join("") || activity.assets?.small_image.split("mp:external/").join("")}`
+            else src = this.Images[activity.name.toUpperCase()];
+            
+            res.props.children.push(
             <ActivityIcon text={activity.name}
-              src={`https://cdn.discordapp.com/app-assets/${activity.application_id}/${activity.assets?.large_image || activity.assets?.small_image}.png`}
+              src={src}
+            />
+          );
+          }
+          else res.props.children.push(
+            <ActivityIcon text={activity.name}
+              src={`https://cdn.discordapp.com/app-assets/${activity.application_id}/${activity.assets?.large_image || activity.assets?.small_image}`}
             />
           );
         }
