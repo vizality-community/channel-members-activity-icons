@@ -14,6 +14,7 @@ export default class ChannelMembersActivityIcons extends Plugin {
     this.Images = {
       GITHUB: `vizality://plugins/${this.addonId}/assets/github.png`,
       NETFLIX: `vizality://plugins/${this.addonId}/assets/netflix.png`,
+      SOUNDCLOUD: `vizality://plugins/${this.addonId}/assets/soundcloud.png`,
       SPOTIFY: `vizality://plugins/${this.addonId}/assets/spotify.png`,
       TWITCH: `vizality://plugins/${this.addonId}/assets/twitch.png`,
       "YOUTUBE MUSIC": `vizality://plugins/${this.addonId}/assets/youtubemusic.png`,
@@ -22,6 +23,7 @@ export default class ChannelMembersActivityIcons extends Plugin {
     this.Special = [
       "github",
       "netflix",
+      "soundcloud",
       "youtube music",
     ]
   }
@@ -54,6 +56,14 @@ export default class ChannelMembersActivityIcons extends Plugin {
               src={src}
             />
           );
+          } else if (activity?.assets?.large_image?.includes("mp:external/") || activity?.assets?.small_image?.includes("mp:external/")) {
+            let src = `https://media.discordapp.net/external/${activity.assets?.large_image.split("mp:external/").join("") || activity.assets?.small_image.split("mp:external/").join("")}`
+            
+            res.props.children.push(
+            <ActivityIcon text={activity.name}
+              src={src}
+              />
+            )
           }
           else res.props.children.push(
             <ActivityIcon text={activity.name}
